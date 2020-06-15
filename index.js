@@ -6,7 +6,8 @@ app.use(cors());
 
 app.get('/ping', function(req, res) {
     console.log(req.headers);
-    res.send('Server is running.');
+    let text = {text: 'Server is running.'};
+    res.send(text);
 });
 
 app.listen(3000);
