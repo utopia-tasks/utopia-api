@@ -16,13 +16,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/robinnicolestewart/todolist-backend.git"
+    "url": "git+https://https://github.com/utopia-tasks/utopia-api.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/robinnicolestewart/todolist-backend/issues"
+    "url": "https://https://github.com/utopia-tasks/utopia-api.git/issues"
   },
-  "homepage": "https://github.com/robinnicolestewart/todolist-backend#readme"
+  "homepage": "https://https://github.com/utopia-tasks/utopia-api.git#readme"
 }
