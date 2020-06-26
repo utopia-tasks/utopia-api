@@ -12,17 +12,18 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "pg": "^8.2.1",
+    "readme-md-generator": "^1.0.0",
     "uuid": "^8.1.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://https://github.com/utopia-tasks/utopia-api.git"
+    "url": "git+https://github.com/utopia-tasks/utopia-api.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://https://github.com/utopia-tasks/utopia-api.git/issues"
+    "url": "https://github.com/utopia-tasks/utopia-api.git/issues"
   },
-  "homepage": "https://https://github.com/utopia-tasks/utopia-api.git#readme"
+  "homepage": "https://github.com/utopia-tasks/utopia-api.git#readme"
 }
