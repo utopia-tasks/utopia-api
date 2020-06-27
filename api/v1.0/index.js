@@ -5,8 +5,8 @@ const express = require('express'),
 
 const pool = new Pool();
 
-router.post('/sign-up', function (req, res) {
-	pool.connect((err, client, release) => {
+router.post('/user', function (req, res) {
+	pool.connect((err , client, release) => {
 		if (err) {
 			res.status(404).send('User cannot be made');
 			return console.error('Error acquiring client', err.stack);
