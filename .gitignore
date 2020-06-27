@@ -105,3 +105,6 @@ dist
 
 set_db_vars.sh
 /sslcert
+/migrations/node_modules
+.idea/
+.DS_Store

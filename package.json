@@ -1,5 +1,5 @@
 {
-  "name": "todolist-backend",
+  "name": "utopia-api",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -12,7 +12,6 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "pg": "^8.2.1",
-    "readme-md-generator": "^1.0.0",
     "uuid": "^8.1.0"
   },
   "repository": {
