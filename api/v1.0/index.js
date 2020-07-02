@@ -22,7 +22,7 @@ router.post('/user', function (req, res) {
 				res.status(404).send('User cannot be made');
 				return console.error('Error executing query', err.stack)
 			}
-			res.send(userDetails.create(result.rows[0]));
+			res.status(200).send('Success');
 		})
 	})
 });

@@ -7,7 +7,7 @@ userDetails.create = function (result) {
 	this.language = result['language'];
 	this.offsetHours = result['offset_hours'];
 	this.createdAt = result['created_at'];
-	console.log(this);
+	this.updatedAt = result['updated_at'];
 	return this;
 };
 
