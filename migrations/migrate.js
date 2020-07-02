@@ -26,6 +26,9 @@ pool.connect((err, client, release) => {
 					return console.error('Error executing query', err.stack)
 				}
 				console.log(result);
+				if(i + 1 === sortedFiles.length) {
+					process.exit(0);
+				}
 			})
 		}
 	});

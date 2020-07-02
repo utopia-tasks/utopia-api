@@ -1,7 +1,8 @@
 const express = require('express'),
 	router = express.Router(),
 	{Pool} = require('pg'),
-	{v4: uuidv4} = require('uuid');
+	{v4: uuidv4} = require('uuid'),
+	userDetails = require('./user_details');
 
 const pool = new Pool();
 
@@ -21,9 +22,33 @@ router.post('/user', function (req, res) {
 				res.status(404).send('User cannot be made');
 				return console.error('Error executing query', err.stack)
 			}
+			res.send(userDetails.create(result.rows[0]));
+		})
+	})
+});
+
+router.post('/cookies', function (req, res) {
+	let cookies = req.cookies;
+	console.log(cookies);
+	pool.connect((err , client, release) => {
+		if (err) {
+			res.status(404).send('Cookie cannot be verified right now');
+			return console.error('Error acquiring client', err.stack);
+		}
+		const query = 'SELECT * FROM generateLoginCookie($1::text, $2::text)';
+		const guid = uuidv4();
+		const vars = [req.cookies['TOKEN'], guid];
+		console.log('Generating new login cookie with: ' + query);
+		client.query(query, vars, (err, result) => {
+			release();
+			if (err) {
+				res.status(404).send('User cannot be made');
+				return console.error('Error executing query', err.stack)
+			}
 			res.send(result.rows);
 		})
 	})
+
 });
 
 router.get('/user?:id', function (req, res) {
