@@ -3,7 +3,7 @@ CREATE SCHEMA cookie;
 CREATE TABLE cookie.login
 (
     user_guid text,
-    uuid_password text,
+    token text,
     created_at timestamp DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_guid) REFERENCES user_info.user_login (user_guid)
 );
