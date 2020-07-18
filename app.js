@@ -11,7 +11,7 @@ const options = {
 	cert: fs.readFileSync('sslcert/cert.pem')
 };
 
-app.use(cors());
+app.use(cors({ origin: 'https://127.0.0.1:4200' , credentials :  true}));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());

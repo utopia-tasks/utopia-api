@@ -30,7 +30,7 @@ router.post('/user', function (req, res) {
 router.post('/login', function (req, res) {
 	pool.connect((err , client, release) => {
 		if (err) {
-			res.status(404).send('User cannot be made');
+			res.status(404).send('Unable to verify user credentials');
 			return console.error('Error acquiring client', err.stack);
 		}
 		const query = 'SELECT l.user_guid FROM user_info.user_login l, user_info.user_details d ' +
@@ -39,7 +39,7 @@ router.post('/login', function (req, res) {
 		console.log('Validating user with: ' + query);
 		client.query(query, vars, (err, result) => {
 			if (err) {
-				res.status(404).send('User cannot be signed in right now');
+				res.status(404).send('Unable to verify user credentials');
 				return console.error('Error executing query', err.stack);
 			}
 			if(result.rows.length === 0) {
