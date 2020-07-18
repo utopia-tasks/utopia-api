@@ -119,5 +119,30 @@ router.get('/ping', function (req, res) {
 	res.send(text);
 });
 
+router.get('/tasks', function (req, res) {
+	let token = req.cookies['TOKEN'];
+	if(!token) {
+		res.status(401).send('Token missing');
+	}
+	pool.connect((err, client, release) => {
+		if (err) {
+			res.status(404).send('Cannot be retrieve tasks right now');
+			return console.error('Error acquiring client', err.stack);
+		}
+		const query = 'SELECT * FROM task_info.task_details WHERE user_guid IN (SELECT user_guid FROM cookie.login WHERE token = $1::text)';
+		const vars = [token];
+		console.log('Retrieving tasks with: ' + query);
+		client.query(query, vars, (err, result) => {
+			release();
+			if (err) {
+				res.status(404).send('Tasks cannot be retrieved');
+				return console.error('Error executing query', err.stack)
+			}
+			res.send(result.rows);
+		})
+	})
+
+});
+
 module.exports = router;
 
